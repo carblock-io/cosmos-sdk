@@ -93,4 +93,8 @@ In the Basecoin example, the sketchy handler isn't provided an account mapper, w
 
 ### More Resources
 
+## Explanation of Mappers and Keepers
+A mapper such as an AccountMapper mediates access to an underlying datastore. 
+A keeper such as a CoinKeeper gives v
+
 * Read the [Cosmos SDK Guide](./guide.md).
