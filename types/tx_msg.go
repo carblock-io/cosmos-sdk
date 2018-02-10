@@ -43,6 +43,8 @@ type Tx interface {
 	// invalid), then the corresponding signature is
 	// .Empty().
 	GetSignatures() []StdSignature
+
+	GetSequence() uint64
 }
 
 var _ Tx = (*StdTx)(nil)
@@ -50,10 +52,12 @@ var _ Tx = (*StdTx)(nil)
 type StdTx struct {
 	Msg
 	Signatures []StdSignature
+	Sequence   uint64
 }
 
 func (tx StdTx) GetMsg() Msg                   { return tx.Msg }
 func (tx StdTx) GetFeePayer() crypto.Address   { return tx.Signatures[0].PubKey.Address() }
 func (tx StdTx) GetSignatures() []StdSignature { return tx.Signatures }
+func (tx StdTx) GetSequence() uint64           { return tx.Sequence }
 
 type TxDecoder func(txBytes []byte) (Tx, Error)
