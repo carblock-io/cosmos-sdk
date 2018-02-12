@@ -101,7 +101,7 @@ func (tx testTx) GetMsg() sdk.Msg                   { return tx.Msg }
 func (tx testTx) GetSigners() []crypto.Address      { return nil }
 func (tx testTx) GetFeePayer() crypto.Address       { return nil }
 func (tx testTx) GetSignatures() []sdk.StdSignature { return nil }
-func (tx testTx) GetSequence() uint64               { return 0 }
+func (tx testTx) GetSequence() int64                { return 0 }
 
 func IsTestAppTx(tx sdk.Tx) bool {
 	_, ok := tx.(testTx)
