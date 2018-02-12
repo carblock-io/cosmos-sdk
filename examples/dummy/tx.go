@@ -56,6 +56,10 @@ func (tx dummyTx) GetFeePayer() crypto.Address {
 	return nil
 }
 
+func (tx dummyTx) GetSequence() crypto.Address {
+	return 0
+}
+
 func decodeTx(txBytes []byte) (sdk.Tx, sdk.Error) {
 	var tx sdk.Tx
 
